@@ -7,13 +7,29 @@
 //
 
 #import "CardGameViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (nonatomic) int flipCount;
+@property (strong, nonatomic) PlayingCardDeck *deck;
 @end
 
 @implementation CardGameViewController
+
+#pragma mark - Accessors
+
+- (PlayingCardDeck *)deck
+{
+    if (!_deck) {
+        _deck = [[PlayingCardDeck alloc] init];
+    }
+    
+    return _deck;
+}
+
+#pragma mark - Setters
 
 - (void)setFlipCount:(int)flipCount
 {
@@ -21,10 +37,30 @@
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
 }
 
+#pragma mark - Actions
+
 - (IBAction)flipCard:(UIButton *)sender
 {
+    // TODO: flip through cards in a deck
     sender.selected = !sender.isSelected;
-    self.flipCount++;
+    
+    if (sender.selected) {
+        Card *card = [self.deck drawRandomCard];
+        self.flipCount++;
+
+        if (card) {
+            [sender setTitle:card.contents forState:UIControlStateSelected];
+        } else {
+            [sender setTitle:@"∅" forState:UIControlStateSelected];
+
+        }
+
+        if (self.deck.cardCount) {
+            self.statusLabel.text = [NSString stringWithFormat:@"Status: %d cards in deck", self.deck.cardCount];            
+        } else {
+            self.statusLabel.text = @"Status: empty deck";
+        }
+    }
 }
 
 @end
