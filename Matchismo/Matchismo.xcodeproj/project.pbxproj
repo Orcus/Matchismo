@@ -95,8 +95,8 @@
 		C17353FD16B7235A0019919D /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
-				C173540F16B7235A0019919D /* MainStoryboard.storyboard */,
 				C173545C16B74A480019919D /* Model */,
+				C173540F16B7235A0019919D /* MainStoryboard.storyboard */,
 				C173541216B7235A0019919D /* CardGameViewController.h */,
 				C173541316B7235A0019919D /* CardGameViewController.m */,
 				C17353FE16B7235A0019919D /* Supporting Files */,
