@@ -46,9 +46,21 @@
     return randomCard;
 }
 
-- (NSUInteger)cardCount
+- (NSUInteger)countCard
 {
     return self.cards.count;
+}
+
+- (void)shuffle:(BOOL)byHand
+{
+    if (self.cards.count > 1) {
+        // TODO: shuffle
+    }
+}
+
+- (void)emptyDeck
+{
+    // TODO: empty deck
 }
 
 @end

@@ -42,11 +42,11 @@
 - (IBAction)flipCard:(UIButton *)sender
 {
     // TODO: flip through cards in a deck
+
     sender.selected = !sender.isSelected;
-    
+
     if (sender.selected) {
         Card *card = [self.deck drawRandomCard];
-        self.flipCount++;
 
         if (card) {
             [sender setTitle:card.contents forState:UIControlStateSelected];
@@ -55,12 +55,14 @@
 
         }
 
-        if (self.deck.cardCount) {
-            self.statusLabel.text = [NSString stringWithFormat:@"Status: %d cards in deck", self.deck.cardCount];            
+        if (self.deck.countCard) {
+            self.statusLabel.text = [NSString stringWithFormat:@"Status: %d cards in deck", self.deck.countCard];
         } else {
             self.statusLabel.text = @"Status: empty deck";
         }
     }
+
+    self.flipCount++;
 }
 
 @end
