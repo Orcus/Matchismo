@@ -14,8 +14,8 @@
 - (void)addCard:(Card *)card atTop:(BOOL)atTop;
 
 - (Card *)drawRandomCard;
-- (NSUInteger)countCard;
-- (void)shuffle:(BOOL)byHand;
-- (void)emptyDeck;
+- (NSUInteger)countCards;
+- (void)shuffle:(BOOL)byHands;
+- (void)removeAllCards;
 
 @end

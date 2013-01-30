@@ -37,8 +37,8 @@
 {
     Card *randomCard = nil; // unnecessary to set nil
     
-    if (self.cards.count) {
-        unsigned index = arc4random() % self.cards.count;
+    if ([self.cards count]) {
+        unsigned index = arc4random() % [self.cards count];
         randomCard = self.cards[index];
         [self.cards removeObjectAtIndex:index];
     }
@@ -46,21 +46,29 @@
     return randomCard;
 }
 
-- (NSUInteger)countCard
+- (NSUInteger)countCards
 {
-    return self.cards.count;
+    return [self.cards count];
 }
 
-- (void)shuffle:(BOOL)byHand
+- (void)shuffle:(BOOL)byHands
 {
-    if (self.cards.count > 1) {
+    if ([self.cards count] > 1) {
         // TODO: shuffle
+
+        if (byHands) {
+            // shuffle "realistically" as if by 2 hands
+            // cut the deck in half
+            // bottom half randomly interlace into top half
+        } else {
+            // shuffle randomly
+        }
     }
 }
 
-- (void)emptyDeck
+- (void)removeAllCards
 {
-    // TODO: empty deck
+    [self.cards removeAllObjects];
 }
 
 @end

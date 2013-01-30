@@ -21,7 +21,13 @@
 
 + (NSArray *)validSuits
 {
-    return @[@"♥", @"♦", @"♠", @"♣"];
+    static NSArray *validSuits = nil;
+
+    if (!validSuits) {
+        validSuits = @[@"♥", @"♦", @"♠", @"♣"];
+    }
+
+    return validSuits;
 }
 
 - (void)setSuit:(NSString *)suit
@@ -38,7 +44,13 @@
 
 + (NSArray *)rankStrings
 {
-    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
+    static NSArray *rankStrings = nil;
+
+    if (!rankStrings) {
+        rankStrings = @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
+    }
+
+    return rankStrings;
 }
 
 + (NSUInteger)maxRank

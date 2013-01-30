@@ -13,14 +13,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck *deck;
+@property (strong, nonatomic) Deck *deck;
 @end
 
 @implementation CardGameViewController
 
 #pragma mark - Accessors
 
-- (PlayingCardDeck *)deck
+- (Deck *)deck
 {
     if (!_deck) {
         _deck = [[PlayingCardDeck alloc] init];
@@ -55,8 +55,8 @@
 
         }
 
-        if (self.deck.countCard) {
-            self.statusLabel.text = [NSString stringWithFormat:@"Status: %d cards in deck", self.deck.countCard];
+        if ([self.deck countCards]) {
+            self.statusLabel.text = [NSString stringWithFormat:@"Status: %d cards in deck", [self.deck countCards]];
         } else {
             self.statusLabel.text = @"Status: empty deck";
         }
