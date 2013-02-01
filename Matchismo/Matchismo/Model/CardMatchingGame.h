@@ -11,7 +11,7 @@
 
 @interface CardMatchingGame : NSObject
 
-@property (readonly, nonatomic) int score;
+@property (nonatomic, readonly) int score;
 
 // designated initializer
 - (id)initWithCardCount:(NSUInteger)count

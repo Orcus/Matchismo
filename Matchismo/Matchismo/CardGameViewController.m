@@ -17,6 +17,8 @@
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
+//@property (strong, nonatomic) UIImage *emptyImage;
+//@property (strong, nonatomic) UIImage *cardBackImage;
 @end
 
 @implementation CardGameViewController
@@ -31,7 +33,23 @@
     }
     return _game;
 }
+/*
+- (UIImage *)emptyImage
+{
+    if (!_emptyImage) {
+        _emptyImage = [[UIImage alloc] init];
+    }
+    return _emptyImage;
+}
 
+- (UIImage *)cardBackImage
+{
+    if (!_cardBackImage) {
+        _cardBackImage = [UIImage imageNamed:@"back-red-75-2.png"];
+    }
+    return _cardBackImage;
+}
+*/
 #pragma mark - Setters
 
 - (void)setCardButtons:(NSArray *)cardButtons
@@ -52,13 +70,16 @@
 {
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
-        [cardButton setTitle:card.contents forState:UIControlStateSelected];
-        [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        [cardButton setTitle:card.contents
+                    forState:UIControlStateSelected];
+        [cardButton setTitle:card.contents
+                    forState:UIControlStateSelected | UIControlStateDisabled];
+
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = card.isUnplayable ? 0.3 : 1.0;
     }
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d Points", self.game.score];
 }
 
 - (IBAction)flipCard:(UIButton *)sender
@@ -67,5 +88,23 @@
     self.flipCount++;
     [self updateUI];
 }
+
+- (void)viewDidLoad
+{
+    UIImage *emptyImage = [[UIImage alloc] init];
+    UIImage *cardBackImage = [UIImage imageNamed:@"back-red-75-2.png"];
+    
+
+    for (UIButton *cardButton in self.cardButtons) {
+        [cardButton setImage:emptyImage
+                    forState:UIControlStateSelected];
+        [cardButton setImage:emptyImage
+                    forState:UIControlStateSelected | UIControlStateDisabled];
+        [cardButton setImage:cardBackImage
+                    forState:UIControlStateNormal];
+    }
+}
+
+
 
 @end
