@@ -296,6 +296,9 @@
                                     <color key="titleColor" red="0.80220688868613144" green="0.0" blue="0.013370114811435477" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="dealCards:" destination="2" eventType="touchUpInside" id="Q50-bf-GmA"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="4KP-bg-FM9">
                                 <rect key="frame" x="164" y="33" width="136" height="44"/>
@@ -304,6 +307,9 @@
                                     <segment title="2"/>
                                     <segment title="3"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectGameMode:" destination="2" eventType="valueChanged" id="F0k-rA-DKa"/>
+                                </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="ujb-ba-xN5">
                                 <rect key="frame" x="18" y="418" width="284" height="23"/>
@@ -314,6 +320,8 @@
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="Q5V-8g-WrI" id="5z4-O8-IqM"/>
+                        <outlet property="gameMatchHistory" destination="ujb-ba-xN5" id="Ndr-B3-oFw"/>
+                        <outlet property="gameMatchMode" destination="4KP-bg-FM9" id="h8p-gr-727"/>
                         <outlet property="scoreLabel" destination="zhl-OX-yP4" id="9AV-Y8-cNM"/>
                         <outlet property="statusLabel" destination="oO0-hg-x3z" id="7m8-xf-HzO"/>
                         <outletCollection property="cardButtons" destination="aTr-ul-2RL" id="HPD-sB-PcD"/>
@@ -338,6 +346,22 @@
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="CardGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dealCards:" candidateClass="UIButton"/>
+                <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectGameMode:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameMatchHistory" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="gameMatchMode" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

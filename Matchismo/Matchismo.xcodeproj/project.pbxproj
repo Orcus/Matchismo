@@ -25,6 +25,7 @@
 		C1ECEB7E16BA162D00D1615A /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ECEB7D16BA162D00D1615A /* CardMatchingGame.m */; };
 		C1ECEB9416BB5D5200D1615A /* back-blue-75-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ECEB8E16BB5D5200D1615A /* back-blue-75-2.png */; };
 		C1ECEB9716BB5D5200D1615A /* back-red-75-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ECEB9116BB5D5200D1615A /* back-red-75-2.png */; };
+		C1ECEB9B16BC81D500D1615A /* MatchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ECEB9A16BC81D500D1615A /* MatchStatus.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		C1ECEB7D16BA162D00D1615A /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		C1ECEB8E16BB5D5200D1615A /* back-blue-75-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-blue-75-2.png"; sourceTree = "<group>"; };
 		C1ECEB9116BB5D5200D1615A /* back-red-75-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-red-75-2.png"; sourceTree = "<group>"; };
+		C1ECEB9916BC81D500D1615A /* MatchStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchStatus.h; path = Model/MatchStatus.h; sourceTree = "<group>"; };
+		C1ECEB9A16BC81D500D1615A /* MatchStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchStatus.m; path = Model/MatchStatus.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 		C173545C16B74A480019919D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1ECEB9916BC81D500D1615A /* MatchStatus.h */,
+				C1ECEB9A16BC81D500D1615A /* MatchStatus.m */,
 				C1ECEB7C16BA162D00D1615A /* CardMatchingGame.h */,
 				C1ECEB7D16BA162D00D1615A /* CardMatchingGame.m */,
 				C173545416B7490F0019919D /* Card.h */,
@@ -239,6 +244,7 @@
 				C173545F16B75AC80019919D /* PlayingCard.m in Sources */,
 				C173546216B75B5A0019919D /* PlayingCardDeck.m in Sources */,
 				C1ECEB7E16BA162D00D1615A /* CardMatchingGame.m in Sources */,
+				C1ECEB9B16BC81D500D1615A /* MatchStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

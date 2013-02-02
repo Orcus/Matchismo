@@ -33,9 +33,6 @@
     return [rankStrings[self.rank] stringByAppendingString:self.suit];
 }
 
-// HAVE to synthesize because setter AND getter was implemented
-@synthesize suit = _suit;
-
 + (NSArray *)validSuits
 {
     static NSArray *validSuits = nil;
@@ -46,6 +43,9 @@
 
     return validSuits;
 }
+
+// HAVE to synthesize because setter AND getter was implemented
+@synthesize suit = _suit;
 
 - (void)setSuit:(NSString *)suit
 {

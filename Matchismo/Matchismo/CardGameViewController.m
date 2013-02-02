@@ -16,9 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameMatchMode;
+@property (weak, nonatomic) IBOutlet UISlider *gameMatchHistory;
 @property (strong, nonatomic) CardMatchingGame *game;
-//@property (strong, nonatomic) UIImage *emptyImage;
-//@property (strong, nonatomic) UIImage *cardBackImage;
 @end
 
 @implementation CardGameViewController
@@ -33,23 +33,7 @@
     }
     return _game;
 }
-/*
-- (UIImage *)emptyImage
-{
-    if (!_emptyImage) {
-        _emptyImage = [[UIImage alloc] init];
-    }
-    return _emptyImage;
-}
 
-- (UIImage *)cardBackImage
-{
-    if (!_cardBackImage) {
-        _cardBackImage = [UIImage imageNamed:@"back-red-75-2.png"];
-    }
-    return _cardBackImage;
-}
-*/
 #pragma mark - Setters
 
 - (void)setCardButtons:(NSArray *)cardButtons
@@ -81,30 +65,62 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"%d Points", self.game.score];
 }
+- (IBAction)dealCards:(UIButton *)sender {
+    self.game = nil;
+    self.flipCount = 0;
+    [self.gameMatchMode setEnabled:YES];
+    [self updateUI];
+}
+
+- (IBAction)selectGameMode:(UISegmentedControl *)sender
+{
+    [self setGameMode:sender.selectedSegmentIndex + 2];
+}
+
+- (void)setGameMode:(NSUInteger)mode
+{
+    UIImage *backImage;
+    self.game.cardsToMatch = mode;
+
+    switch (mode) {
+        case 2:
+            backImage = [UIImage imageNamed:@"back-red-75-2.png"];
+            break;
+        case 3:
+            backImage = [UIImage imageNamed:@"back-blue-75-2.png"];
+            break;
+        default:
+            backImage = [[UIImage alloc] init];
+            break;
+    }
+
+    for (UIButton *cardButton in self.cardButtons) {
+        [cardButton setImage:backImage
+                    forState:UIControlStateNormal];
+    }
+}
 
 - (IBAction)flipCard:(UIButton *)sender
 {
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
+    [self.gameMatchMode setEnabled:NO];
     [self updateUI];
 }
 
 - (void)viewDidLoad
 {
-    UIImage *emptyImage = [[UIImage alloc] init];
-    UIImage *cardBackImage = [UIImage imageNamed:@"back-red-75-2.png"];
-    
+    UIImage *emptyImage = [[UIImage alloc] init];    
 
     for (UIButton *cardButton in self.cardButtons) {
+        [cardButton setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 3)];
         [cardButton setImage:emptyImage
                     forState:UIControlStateSelected];
         [cardButton setImage:emptyImage
                     forState:UIControlStateSelected | UIControlStateDisabled];
-        [cardButton setImage:cardBackImage
-                    forState:UIControlStateNormal];
     }
+
+    [self setGameMode:self.gameMatchMode.selectedSegmentIndex + 2];
 }
-
-
 
 @end

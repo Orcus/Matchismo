@@ -9,22 +9,16 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame()
-
 @property (strong, nonatomic) NSMutableArray *cards; // of Card
 @property (nonatomic, readwrite) int score;
 
+// The code to generate a match status string should be in the controller and
+// corresponds to a match status in the model. The model has a list of past
+// match status. The controller interprets the data from the model for the view.
+@property (strong, nonatomic) NSMutableArray *matchHistory; // of MatchStatus
 @end
 
 @implementation CardMatchingGame
-
-- (NSMutableArray *)cards
-{
-    if (!_cards) {
-        _cards = [[NSMutableArray alloc] init];
-    }
-    
-    return _cards;
-}
 
 // count can be different from this method's signature in the header file
 - (id)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck
@@ -45,6 +39,15 @@
     }
 
     return self;
+}
+
+- (NSMutableArray *)cards
+{
+    if (!_cards) {
+        _cards = [[NSMutableArray alloc] init];
+    }
+    
+    return _cards;
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index

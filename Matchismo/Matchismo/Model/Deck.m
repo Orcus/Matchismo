@@ -68,6 +68,7 @@
 
 - (void)removeAllCards
 {
+    //self.cards = nil; // set to nil so it can be cleared from the heap
     [self.cards removeAllObjects];
 }
 
