@@ -26,6 +26,7 @@
 		C1ECEB9416BB5D5200D1615A /* back-blue-75-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ECEB8E16BB5D5200D1615A /* back-blue-75-2.png */; };
 		C1ECEB9716BB5D5200D1615A /* back-red-75-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ECEB9116BB5D5200D1615A /* back-red-75-2.png */; };
 		C1ECEB9B16BC81D500D1615A /* MatchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ECEB9A16BC81D500D1615A /* MatchStatus.m */; };
+		C1ECEBA016BEF4B700D1615A /* felt-green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1ECEB9F16BEF4B700D1615A /* felt-green.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		C1ECEB9116BB5D5200D1615A /* back-red-75-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-red-75-2.png"; sourceTree = "<group>"; };
 		C1ECEB9916BC81D500D1615A /* MatchStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchStatus.h; path = Model/MatchStatus.h; sourceTree = "<group>"; };
 		C1ECEB9A16BC81D500D1615A /* MatchStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchStatus.m; path = Model/MatchStatus.m; sourceTree = "<group>"; };
+		C1ECEB9F16BEF4B700D1615A /* felt-green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "felt-green.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		C1ECEB8616BB213900D1615A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1ECEB9F16BEF4B700D1615A /* felt-green.jpg */,
 				C1ECEB8E16BB5D5200D1615A /* back-blue-75-2.png */,
 				C1ECEB9116BB5D5200D1615A /* back-red-75-2.png */,
 			);
@@ -226,6 +229,7 @@
 				C173541116B7235A0019919D /* MainStoryboard.storyboard in Resources */,
 				C1ECEB9416BB5D5200D1615A /* back-blue-75-2.png in Resources */,
 				C1ECEB9716BB5D5200D1615A /* back-red-75-2.png in Resources */,
+				C1ECEBA016BEF4B700D1615A /* felt-green.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

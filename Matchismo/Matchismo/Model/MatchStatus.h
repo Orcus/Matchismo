@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MatchStatus : NSObject
+@interface MatchStatus : NSObject <NSCopying>
 
-// matchSet[0] is the item to match
-// matchSet[1...n] are the other items to match against
-@property (strong, nonatomic) NSArray *matchSet;
-
-// if the set matches then match should be YES;
+// YES when the array of objects match
 @property (nonatomic, getter = isMatch) BOOL match;
+@property (nonatomic, getter = isFlip) BOOL flip;
+@property (nonatomic) int score;
+
+- (void)addObject:(id)anObject;
+- (NSArray *)group;
 @end

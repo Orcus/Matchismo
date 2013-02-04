@@ -10,19 +10,44 @@
 
 @implementation PlayingCard
 
+// match returns:
+// 0 if all cards don't match
+// 1 if all cards match suit
+// 4 if all cards match rank
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
+    BOOL isSuitMatch = YES;
+    BOOL isRankMatch = YES;
 
-    if ([otherCards count] == 1) {
-        PlayingCard *otherCard = [otherCards lastObject];
+    if ([otherCards count] > 0) {
+        for (id otherCard in otherCards) {
+            if ([otherCard isKindOfClass:[PlayingCard class]]) {
+                PlayingCard *otherPlayingCard = otherCard;
+                if (![otherPlayingCard.suit isEqualToString:self.suit]) {
+                    isSuitMatch = NO;
+                }
 
-        if ([otherCard.suit isEqualToString:self.suit]) {
-            score = 1;
-        } else if (otherCard.rank == self.rank) {
-            score = 4;
+                if (otherPlayingCard.rank != self.rank) {
+                    isRankMatch = NO;
+                }
+
+                // stop matching when a complete mismatch is found
+                if (!isSuitMatch && !isRankMatch) {
+                    break;
+                }
+            } else {
+                isSuitMatch = isRankMatch = NO;
+            }
         }
     }
+
+    if (isSuitMatch) {
+        score = 1;
+    } else if (isRankMatch) {
+        score = 4;
+    }
+
     return score;
 }
 

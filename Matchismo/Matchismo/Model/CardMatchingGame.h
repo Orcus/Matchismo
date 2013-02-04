@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Deck.h"
+#import "MatchStatus.h"
 
 @interface CardMatchingGame : NSObject
 
@@ -19,5 +20,7 @@
               usingDeck:(Deck *)deck;
 - (void)flipCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
+-(MatchStatus *)matchAtIndex:(NSUInteger)index;
+-(MatchStatus *)recentMatch;
 
 @end

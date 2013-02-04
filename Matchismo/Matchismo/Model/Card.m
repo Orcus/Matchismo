@@ -29,4 +29,17 @@
     return self.contents;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    Card *copy = [[Card alloc] init];
+
+    if (copy) {
+        copy.contents = [self.contents copyWithZone:zone];
+        copy.faceUp = self.isFaceUp;
+        copy.unplayable = self.isUnplayable;
+    }
+
+    return copy;
+}
+
 @end

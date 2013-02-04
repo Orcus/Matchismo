@@ -42,7 +42,7 @@
         randomCard = self.cards[index];
         [self.cards removeObjectAtIndex:index];
     }
-    
+
     return randomCard;
 }
 

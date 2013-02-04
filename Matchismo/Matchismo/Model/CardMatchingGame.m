@@ -50,6 +50,15 @@
     return _cards;
 }
 
+- (NSMutableArray *)matchHistory
+{
+    if (!_matchHistory) {
+        _matchHistory = [[NSMutableArray alloc] init];
+    }
+
+    return _matchHistory;
+}
+
 - (Card *)cardAtIndex:(NSUInteger)index
 {
     return (index < [self.cards count]) ? self.cards[index] : nil;
@@ -64,26 +73,67 @@
     Card *card = [self cardAtIndex:index];
 
     if (card && !card.isUnplayable) {
+
+        MatchStatus *status = [[MatchStatus alloc]init];
+        [status addObject:card];
+
         if (!card.isFaceUp) {
+            NSMutableArray *otherCards = [[NSMutableArray alloc] init];
+            status.flip = YES;
+            status.score -= FLIP_COST;
+
+            // find other playable face up cards to match against
             for (Card *otherCard in self.cards) {
                 if (otherCard.isFaceUp && !otherCard.isUnplayable) {
-                    int matchScore = [card match:@[otherCard]];
+                    [otherCards addObject:otherCard];
+                }
 
-                    if (matchScore) {
-                        otherCard.unplayable = YES;
-                        card.unplayable = YES;
-                        self.score += matchScore * MATCH_BONUS;
-                    } else {
-                        otherCard.faceUp = NO;
-                        self.score -= MISMATCH_PENALTY;
-                    }
+                // stop when enough cards to match against are found as
+                // there shouldn't be more cards than necessary
+                if ([otherCards count] == self.cardsToMatch - 1) {
                     break;
                 }
             }
-            self.score -= FLIP_COST;
+
+            // don't match unless there are enough cards to match against
+            if ([otherCards count] == self.cardsToMatch - 1) {
+                int matchScore = [card match:otherCards];
+                
+                if (matchScore) {
+                    for (Card *otherCard in otherCards) {
+                        [status addObject:otherCard];
+                        status.match = YES;
+                        otherCard.unplayable = YES;
+                    }
+                    card.unplayable = YES;
+                    status.score += matchScore * MATCH_BONUS * (self.cardsToMatch - 1);
+                } else {
+                    for (Card *otherCard in otherCards) {
+                        [status addObject:otherCard];
+                        otherCard.faceUp = NO;
+                    }
+                    status.score -= MISMATCH_PENALTY * (self.cardsToMatch - 1);
+                }
+            }
+            self.score += status.score;
         }
+        [self.matchHistory addObject:status];
         card.faceUp = !card.faceUp;
     }
+}
+
+-(MatchStatus *)matchAtIndex:(NSUInteger)index
+{
+    if (index < [self.matchHistory count]) {
+        return self.matchHistory[index];
+    } else {
+        return nil;
+    }
+}
+
+-(MatchStatus *)recentMatch
+{
+    return [[self.matchHistory lastObject] copy];
 }
 
 @end
