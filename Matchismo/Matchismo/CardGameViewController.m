@@ -131,11 +131,12 @@
     } else {
         self.statusLabel.alpha = 1.0;
     }
-//    MatchStatus *status = [self.game recentMatch];
-//    Card *c = status.group[0];
-//    c.contents = @"XX";
-//    c.faceUp = YES;
-//    c.unplayable = NO;
+    
+    //    MatchStatus *status = [self.game recentMatch];
+    //    Card *c = status.group[0];
+    //    c.contents = @"XX";
+    //    c.faceUp = YES;
+    //    c.unplayable = NO;
 }
 
 - (NSString *)historyText:(MatchStatus *)status
