@@ -1,4 +1,4 @@
 Matchismo
 =========
 
-Coding Together Homework 0
+Coding Together Projects
