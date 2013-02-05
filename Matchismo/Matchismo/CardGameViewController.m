@@ -69,15 +69,32 @@
 }
 
 - (IBAction)dealCards:(UIButton *)sender {
-    self.game = nil;
-    // have to set card matching mode
-    self.game.cardsToMatch = self.gameMatchMode.selectedSegmentIndex + 2;
-    self.flipCount = 0;
-    [self.gameMatchMode setEnabled:YES];
-    [self.gameMatchHistory setEnabled:NO];
-    self.gameMatchHistory.minimumValue = 0;
-    self.gameMatchHistory.maximumValue = 0;
-    [self updateUI];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Start a New Game?"
+                          message:@"Current game and score will reset!"
+                          delegate:self
+                          cancelButtonTitle:@"No"
+                          otherButtonTitles:@"Yes", nil];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // start a new game
+        self.game = nil;
+        // have to set card matching mode
+        self.game.cardsToMatch = self.gameMatchMode.selectedSegmentIndex + 2;
+        self.flipCount = 0;
+        [self.gameMatchMode setEnabled:YES];
+        [self.gameMatchHistory setEnabled:NO];
+        self.gameMatchHistory.minimumValue = 0;
+        self.gameMatchHistory.maximumValue = 0;
+        [self updateUI];
+    }
+
+    [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
 - (IBAction)selectGameMode:(UISegmentedControl *)sender
@@ -130,20 +147,19 @@
         self.statusLabel.alpha = 0.5;
     } else {
         self.statusLabel.alpha = 1.0;
-    }
-    
-//    MatchStatus *status = [self.game recentMatch];
-//    Card *c = status.group[0];
-//    c.contents = @"XX";
-//    c.faceUp = YES;
-//    c.unplayable = NO;
+    }    
+    MatchStatus *status = [self.game recentMatch];
+    Card *c = [status group][0];
+    c.contents = @"XX";
+    c.faceUp = YES;
+    c.unplayable = NO;
 }
 
 - (NSString *)historyText:(MatchStatus *)status
 {
-    NSString *cardsText = [status.group componentsJoinedByString:@","];
+    NSString *cardsText = [[status group] componentsJoinedByString:@","];
     
-    if ([status.group count] == 1) {
+    if ([[status group] count] == 1) {
         if (status.isFlip) {
             return [NSString stringWithFormat:@"%@ flippped up, %d point", cardsText, status.score];
         } else {

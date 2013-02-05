@@ -32,7 +32,7 @@
     if (copy) {
         copy.matchGroup = [self.matchGroup copyWithZone:zone];
         copy.match = self.isMatch;
-        copy.match = self.isFlip;
+        copy.flip = self.isFlip;
         copy.score = self.score;
     }
 
@@ -48,7 +48,8 @@
 
 - (NSArray *)group
 {
-    return [[NSArray alloc] initWithArray:self.matchGroup];
+    return [NSArray arrayWithArray:self.matchGroup];
+    //return [[NSArray alloc] initWithArray:self.matchGroup];
 }
 
 @end
