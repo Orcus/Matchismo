@@ -13,6 +13,9 @@
 @interface CardMatchingGame : NSObject
 
 @property (nonatomic, readonly) int score;
+@property (nonatomic) NSUInteger flipCost;
+@property (nonatomic) NSUInteger mismatchPenalty;
+@property (nonatomic) NSUInteger matchBonus;
 @property (nonatomic) NSUInteger cardsToMatch;
 
 // designated initializer

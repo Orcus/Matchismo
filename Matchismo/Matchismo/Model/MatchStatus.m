@@ -48,7 +48,8 @@
 
 - (NSArray *)group
 {
-    return [NSArray arrayWithArray:self.matchGroup];
+    return [self.matchGroup copy];
+    //return [NSArray arrayWithArray:self.matchGroup];
     //return [[NSArray alloc] initWithArray:self.matchGroup];
 }
 

@@ -38,6 +38,13 @@
         }
     }
 
+    if (self) {
+        //set up default values for scoring
+        self.flipCost = 1;
+        self.mismatchPenalty = 2;
+        self.matchBonus = 4;
+    }
+
     return self;
 }
 
@@ -64,10 +71,6 @@
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
-#define FLIP_COST 1
-#define MISMATCH_PENALTY 2
-#define MATCH_BONUS 4
-
 - (void)flipCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
@@ -80,7 +83,7 @@
         if (!card.isFaceUp) {
             NSMutableArray *otherCards = [[NSMutableArray alloc] init];
             status.flip = YES;
-            status.score -= FLIP_COST;
+            status.score -= self.flipCost;
 
             // find other playable face up cards to match against
             for (Card *otherCard in self.cards) {
@@ -106,13 +109,13 @@
                     }
                     card.unplayable = YES;
                     status.match = YES;
-                    status.score += matchScore * MATCH_BONUS * (self.cardsToMatch - 1);
+                    status.score += matchScore * self.matchBonus * (self.cardsToMatch - 1);
                 } else {
                     for (Card *otherCard in otherCards) {
                         [status addObject:[otherCard copy]];
                         otherCard.faceUp = NO;
                     }
-                    status.score -= MISMATCH_PENALTY * (self.cardsToMatch - 1);
+                    status.score -= self.mismatchPenalty * (self.cardsToMatch - 1);
                 }
             }
             self.score += status.score;

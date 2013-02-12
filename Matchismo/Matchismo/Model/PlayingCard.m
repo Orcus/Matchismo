@@ -17,8 +17,8 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
-    BOOL isSuitMatch = YES;
-    BOOL isRankMatch = YES;
+    BOOL isSuitMatch = YES; // once this is set to NO, it should remain NO
+    BOOL isRankMatch = YES; // once this is set to NO, it should remain NO
 
     if ([otherCards count] > 0) {
         for (id otherCard in otherCards) {
@@ -37,7 +37,9 @@
                     break;
                 }
             } else {
+                // not a PlayingCard so not a match at all
                 isSuitMatch = isRankMatch = NO;
+                break;
             }
         }
     }
@@ -98,6 +100,18 @@
 + (NSUInteger)maxRank
 {
     return [self rankStrings].count - 1;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    PlayingCard *copy = [super copyWithZone:zone];
+
+    if (copy) {
+        copy.suit = [self.suit copyWithZone:zone];
+        copy.rank = self.rank;
+    }
+
+    return copy;
 }
 
 @end
