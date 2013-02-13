@@ -73,15 +73,15 @@
 {
     NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
     
-    if (card.shading == 1) {
+    if (card.shading == SetCardShadingSolid) {
         [attributes setObject:self.cardSetColors[card.color - 1]
                        forKey:NSForegroundColorAttributeName];
     } else {
-        if (card.shading == 2) {
-            [attributes setObject:[UIColor whiteColor]
+        if (card.shading == SetCardShadingStriped) {
+            [attributes setObject:[UIColor lightGrayColor]
                            forKey:NSForegroundColorAttributeName];
         } else {
-            [attributes setObject:[UIColor lightGrayColor]
+            [attributes setObject:[UIColor whiteColor]
                            forKey:NSForegroundColorAttributeName];
         }
 

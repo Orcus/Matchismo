@@ -8,7 +8,7 @@
         <scene sceneID="uKW-Rf-FUQ">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="RcN-Gk-tGV" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3LI-VB-qp7">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -17,6 +17,8 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="vRa-lv-UWY"/>
                         <segue destination="GHP-3y-aVj" kind="relationship" relationship="viewControllers" id="FhD-9g-kRj"/>
+                        <segue destination="2GG-qi-hs6" kind="relationship" relationship="viewControllers" id="hfO-bB-RJf"/>
+                        <segue destination="3yN-01-EWR" kind="relationship" relationship="viewControllers" id="3k7-pd-7JO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d5-tP-RLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,7 +359,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Match" id="Puh-Ym-ggn"/>
+                    <tabBarItem key="tabBarItem" title="Match" image="icon-tab-match.png" id="Puh-Ym-ggn"/>
                     <connections>
                         <outlet property="dealButton" destination="ckN-W9-Yl6" id="QhP-Cl-45B"/>
                         <outlet property="flipsLabel" destination="Q5V-8g-WrI" id="5z4-O8-IqM"/>
@@ -385,7 +387,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="-407"/>
+            <point key="canvasLocation" x="71" y="-406"/>
+        </scene>
+        <!--Score View Controller - Scores-->
+        <scene sceneID="WU6-ED-xXD">
+            <objects>
+                <viewController id="2GG-qi-hs6" customClass="ScoreViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WIq-po-6dd">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ue-CM-g2p">
+                                <rect key="frame" x="20" y="348" width="85" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Date ⬆">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Date ⬇"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X3D-ed-U4c">
+                                <rect key="frame" x="117" y="348" width="86" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Time ⬆">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Time ⬇"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RQX-kl-4zX">
+                                <rect key="frame" x="215" y="348" width="85" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Score ⬆">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Score ⬇"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scores" image="icon-tab-score.png" id="NNb-hM-F2N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2UO-5F-CG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="234"/>
         </scene>
         <!--Set Game View Controller - Set-->
         <scene sceneID="uFP-mx-ZN6">
@@ -396,7 +454,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="purple-texture-bg.jpg" id="lMc-5r-Yn1">
-                                <rect key="frame" x="0.0" y="-24" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KUD-DL-XmQ">
@@ -769,7 +827,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Set" id="tGK-we-9LJ"/>
+                    <tabBarItem key="tabBarItem" title="Set" image="icon-tab-set.png" id="tGK-we-9LJ"/>
                     <connections>
                         <outlet property="dealButton" destination="V45-Mb-AUu" id="LQW-AV-XJj"/>
                         <outlet property="flipsLabel" destination="pcu-UO-zFU" id="RQz-wB-7s1"/>
@@ -804,11 +862,145 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKA-sp-paq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="235"/>
+            <point key="canvasLocation" x="473" y="-406"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="GFa-6y-d7f">
+            <objects>
+                <viewController id="3yN-01-EWR" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JbV-iF-Kgv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="99f-yb-O2l">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Match Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T2K-5d-9HI">
+                                        <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fbB-6i-JNx">
+                                        <rect key="frame" x="20" y="49" width="96" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" id="Msq-hK-X6o">
+                                        <rect key="frame" x="122" y="49" width="180" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="History Text:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hJ7-Tj-JFX">
+                                        <rect key="frame" x="20" y="83" width="96" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5hR-Gk-WT7">
+                                        <rect key="frame" x="124" y="79" width="176" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Dark"/>
+                                            <segment title="Light"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </segmentedControl>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="green-texture-bg.jpg" id="DAF-9q-ldK">
+                                        <rect key="frame" x="20" y="122" width="280" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="History Text Sample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mqp-Rl-Fhv">
+                                        <rect key="frame" x="60" y="122" width="200" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.72405337591240881" green="0.816157537998214" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="8PB-Xc-RfP">
+                                <rect key="frame" x="0.0" y="205" width="320" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Set Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E8D-1d-QpA">
+                                        <rect key="frame" x="20" y="20" width="280" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MBW-AW-aYp">
+                                        <rect key="frame" x="20" y="49" width="96" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" id="t2R-p3-nM8">
+                                        <rect key="frame" x="122" y="49" width="180" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="History Text:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Le-Z1-A9a">
+                                        <rect key="frame" x="20" y="83" width="96" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="G7e-QM-Y2z">
+                                        <rect key="frame" x="124" y="79" width="176" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Dark"/>
+                                            <segment title="Light"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </segmentedControl>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="purple-texture-bg.jpg" id="3ms-A8-4kY">
+                                        <rect key="frame" x="20" y="122" width="280" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="History Text Sample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f7K-Xf-9sq">
+                                        <rect key="frame" x="60" y="122" width="200" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96299389388934831" green="0.72405337591240881" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="icon-tab-settings.png" id="LCR-hV-QSQ"/>
+                    <connections>
+                        <outlet property="gameMatchBGSlider" destination="Msq-hK-X6o" id="HAM-PQ-3WA"/>
+                        <outlet property="gameMatchSampleBG" destination="DAF-9q-ldK" id="HHS-Zk-rjK"/>
+                        <outlet property="gameMatchSampleText" destination="Mqp-Rl-Fhv" id="Z9C-N4-bCm"/>
+                        <outlet property="gameMatchTextSegControl" destination="5hR-Gk-WT7" id="5Qb-LA-52Q"/>
+                        <outlet property="gameSetBGSlider" destination="t2R-p3-nM8" id="9hu-lc-kXc"/>
+                        <outlet property="gameSetSampleBG" destination="3ms-A8-4kY" id="lBh-wd-zMv"/>
+                        <outlet property="gameSetSampleText" destination="f7K-Xf-9sq" id="plu-wJ-j2s"/>
+                        <outlet property="gameSetTextSegControl" destination="G7e-QM-Y2z" id="fZd-RH-Xl2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f51-n7-t8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="473" y="234"/>
         </scene>
     </scenes>
     <resources>
         <image name="green-texture-bg.jpg" width="640" height="960"/>
+        <image name="icon-tab-match.png" width="30" height="30"/>
+        <image name="icon-tab-score.png" width="30" height="30"/>
+        <image name="icon-tab-set.png" width="30" height="30"/>
+        <image name="icon-tab-settings.png" width="30" height="30"/>
         <image name="purple-texture-bg.jpg" width="640" height="960"/>
     </resources>
     <classes>
@@ -828,10 +1020,26 @@
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="ScoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
+        </class>
         <class className="SetGameViewController" superclassName="CardGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
             <relationships>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameMatchBGSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="gameMatchSampleBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gameMatchSampleText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameMatchTextSegControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="gameSetBGSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="gameSetSampleBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gameSetSampleText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameSetTextSegControl" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
     </classes>
